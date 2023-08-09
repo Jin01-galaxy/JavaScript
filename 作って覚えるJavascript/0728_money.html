@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function showSlider(){
+            var sliderValue = document.getElementById("slider").value;
+            alert("Value:" + sliderValue);
+        }
+        function clock() {
+            // get Date
+            var now = new Date();
+            var timeTokyo = now.getTime();
+            // calcurate UTC time
+            var timeUTC = timeTokyo - 9*60*60*1000;
+
+            var cityElement = document.getElementById("city");
+            var index = cityElement.selectedIndex;
+            var timeZone = cityElement.options[index].value;
+            
+            var timeCity = timeUTC + timeZone*60*60*1000;
+
+            now = new Date(timeCity);
+
+
+
+            // get Hours
+            var hour = now.getHours();
+            var min = now.getMinutes();
+            var sec = now.getSeconds();
+
+            if (hour<10){
+                hour = "0"+hour;
+            }
+            if (min<10) min = "0"+min;
+            if (sec<10) sec ="0"+sec;
+
+            var timeElement = document.getElementById("time");
+            timeElement.innerHTML = hour+":"+min+":"+sec;
+           
+            
+            var year = now.getFullYear();
+            var month = now.getMonth()+1;
+            var day = now.getDate();
+            var weekArray = ["Sun","Mon","Tue","wed","Thu","Fri","Sat"];
+            var week = weekArray[now.getDay()];
+            var dateElement = document.getElementById("date");
+            dateElement.innerHTML = year+"/"+month+"/"+day+" "+week;
+
+            //execute clock() by seconds
+            setTimeout("clock()",1000);
+        }
+    </script>
+    <style>
+        form {
+            font-family: "メイリオ";
+            width: 685px;
+            padding: 10px;
+        }
+        #clock {
+            font-family: "Courier New";
+            background-color: #CCCCCC;
+            border: solid;
+            width: 685px;
+            padding: 10px;
+        }
+        #date {
+            font-size: 20pt;
+        }
+        #time {
+            font-size: 70pt;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        １ドル＝
+        <input type="number", step="0.1" id="rate" value="77.8" size="12">円
+        両替する金額：
+        <input type="number" id="inMoney" value="100" size="12">
+    </form>
+</body>
+
+</html>

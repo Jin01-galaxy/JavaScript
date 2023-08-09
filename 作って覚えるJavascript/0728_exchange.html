@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function exchange() {
+            var rate  = document.getElementById("rate").value;
+            var inMoney = document.getElementById("inMoney").value;
+            
+            var exchangeMoney = inMoney * rate;
+
+            var outMoneyElement = document.getElementById("outMoney");
+            outMoneyElement.innerHTML = exchangeMoney+"円";
+            
+        }
+        
+    </script>
+    <style>
+        form {
+            font-family: "メイリオ";
+            width: 685px;
+            padding: 10px;
+        }
+        #clock {
+            font-family: "Courier New";
+            background-color: #CCCCCC;
+            border: solid;
+            width: 685px;
+            padding: 10px;
+        }
+        #date {
+            font-size: 20pt;
+        }
+        #time {
+            font-size: 70pt;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        １ドル＝
+        <input type="number", step="1" id="rate" value="77" size="12">円
+        両替する金額：
+        <input type="number" id="inMoney" value="100" size="12">
+        <br>
+        <input type="button" id="buttonExchange" value="ドルから変換" onClick="exchange()">
+        <hr>両替結果：
+        <div id="outMoney">-----</div>
+    </form>
+</body>
+
+</html>

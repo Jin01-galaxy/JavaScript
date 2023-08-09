@@ -1,0 +1,41 @@
+h1 {
+    text-align: center;
+    /* text-decoration: cyan underline wavy; */
+    letter-spacing: 10px;
+    font-size: 30px;
+    background-color: beige;
+    width: 200px;
+    padding-left: 20px;
+    padding-top: 50px;
+}
+
+div {
+    width: 400px;
+    background-color: beige;
+}
+
+button {
+    padding: 5px;
+}
+
+#one {
+    background-color: #15616d;
+    border-width: 5px;
+    border-color: #c1121f;
+    border-style: solid;
+    box-sizing: border-box;
+}
+#two {
+    background-color: #78290f;
+    border-width: 3px;
+    border-color: #ffecd1;
+    border-style: dashed;
+    box-sizing: border-box;
+    border-radius: 5%;
+}
+#three {
+    background-color: #ffecd1;
+    border: solid 4px #0a9396;
+    box-sizing: border-box;
+
+}

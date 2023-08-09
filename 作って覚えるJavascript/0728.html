@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function showSlider(){
+            var sliderValue = document.getElementById("slider").value;
+            alert("Value:" + sliderValue);
+        }
+        function clock() {
+            // get Date
+            var now = new Date();
+            var timeTokyo = now.getTime();
+            // calcurate UTC time
+            var timeUTC = timeTokyo - 9*60*60*1000;
+
+            var cityElement = document.getElementById("city");
+            var index = cityElement.selectedIndex;
+            var timeZone = cityElement.options[index].value;
+            
+            var timeCity = timeUTC + timeZone*60*60*1000;
+
+            now = new Date(timeCity);
+
+
+
+            // get Hours
+            var hour = now.getHours();
+            var min = now.getMinutes();
+            var sec = now.getSeconds();
+
+            if (hour<10){
+                hour = "0"+hour;
+            }
+            if (min<10) min = "0"+min;
+            if (sec<10) sec ="0"+sec;
+
+            var timeElement = document.getElementById("time");
+            timeElement.innerHTML = hour+":"+min+":"+sec;
+           
+            
+            var year = now.getFullYear();
+            var month = now.getMonth()+1;
+            var day = now.getDate();
+            var weekArray = ["Sun","Mon","Tue","wed","Thu","Fri","Sat"];
+            var week = weekArray[now.getDay()];
+            var dateElement = document.getElementById("date");
+            dateElement.innerHTML = year+"/"+month+"/"+day+" "+week;
+
+            //execute clock() by seconds
+            setTimeout("clock()",1000);
+        }
+    </script>
+    <style>
+        form {
+            font-family: "メイリオ";
+            width: 400px;
+            padding: 10px;
+        }
+        #clock {
+            font-family: "Courier New";
+            color:aquamarine;
+            background-color: #0c2464;
+            border: solid;
+            width: 450px;
+            padding: 10px;
+        }
+        #date {
+            font-size: 20pt;
+        }
+        #time {
+            font-size: 70pt;
+        }
+    </style>
+</head>
+<body onload="clock()">
+    <form>
+        <input type="range" id="slider" value="50" min="0" max="100">
+        <!-- <br> -->
+        <input type="button" value="表示：" onclick="showSlider()">
+
+    </form>
+    <div id="clock">
+        <select id="city">
+            <option value="-10">Honolulu(USA)</option>
+            <option value="0">London(UK)</option>
+            <option value="9">Tokyo(JAPAN)</option>
+            <option value="10">Sydney(AUSTRALIA)</option>
+        </select>
+        <img src="robot01.png">
+        <div id="date">----/--/-- ---</div>
+        <div id="time">--:--:--</div>
+    </div>
+</body>
+
+</html>
