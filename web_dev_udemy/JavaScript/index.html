@@ -1,15 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="app.css">
 </head>
+
 <body>
-    <h2>JavaScript</h2>
+    <h2>マラソン申し込みフォーム</h2>
     <!-- <div class="circle"></div> -->
+    <form action="/tacos">
+        <label for="last">姓:</label>
+        <input type="text" id="last" name="lastname required">
+        <label for="first">名:</label>
+        <input type="text" id="first" name="firstname required">
+        <p>参加するマラソンを選択：</p>
+        <div>
+            <input type="radio" name="race" id="funrun" value="funrun">
+            <label for="funrun">楽しく走ろう5km</label>
+        </div>
+        <div>
+            <input type="radio" name="race" id="half" value="half">
+            <label for="half">ハーフマラソン</label>
+        </div>
+        <div>
+            <input type="radio" name="race" id="full" value="full">
+            <label for="full">フルマラソン</label>
+        </div>
+
+        <div>
+            <label for="email">メールアドレス</label>
+            <input type="email" name="email" id="email" required>
+            <label for="password">パスワード</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <div>
+            <label for="division">参加する年代</label>
+            <select name="division" id="division">
+                <option value="kids">kids</option>
+                <option value="young">young</option>
+                <option value="adult">adult</option>
+                <option value="sinea">50+</option>
+            </select>
+        </div>
+
+        <input type="submit" value="submit001">
+    </form>
+
     <script src="app.js"></script>
 
 </body>
+
 </html>
+
+http://127.0.0.1:5500/tacos?lastname=fg & firstname=f & race=half & email=f%40f&password=fff & division=kids
