@@ -5,3 +5,8 @@ const cat = {
         console.log(this.color);
     }
 }
+
+//207
+const add = function (x, y) {
+    return x + y;
+}
