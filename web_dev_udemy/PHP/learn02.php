@@ -52,7 +52,20 @@
 // $total = array_sum($scores);
 // echo $total . PHP_EOL;
 
-//90 multibyte strings
-$message = "ハローワールド";
-$length = mb_strlen($message);
-echo $length . PHP_EOL;
+// //90 multibyte strings
+// $message = "ハローワールド";
+// $length = mb_strlen($message);
+// echo $length . PHP_EOL;
+
+//99
+$scores = [
+    "Eng" => [98,35,83],
+    "Mat" => [76,33,74],
+    "Sci" => [88,35,53],
+];
+foreach ($scores as $key => $value) {
+    # code...
+    $total = array_sum($value);
+    echo $key . ":" . $total . PHP_EOL; 
+}
+
